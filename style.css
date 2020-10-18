@@ -1,36 +1,113 @@
 body{
-    background: #000;
+    background: rgb(1, 6, 29);
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
 .container{
     background: rgb(4, 34, 61);
-    width: 580px;
-    height: 480px;
+    width: 1000px;
+    height: 580px;
     margin: 90px auto;
+    border-radius: 45px 0px 44px 0px;
+    -moz-border-radius: 45px 0px 44px 0px;
+    -webkit-border-radius: 45px 0px 44px 0px;
+    border: 0px solid #000000;
+
+    -webkit-box-shadow: 10px 10px 25px 0px rgba(46,176,199,1);
+    -moz-box-shadow: 10px 10px 25px 0px rgb(72, 76, 77);
+    box-shadow: 10px 10px 25px 0px rgb(72, 76, 77);
+    border: none;
+    
 }
-.questionContainer{
-    color: yellow;
+#questionContainer {
+    padding-left: 10px;
+    color: white;
     text-align: center;
-    margin: 0 auto;
+    margin-left: 20px auto;
+}
+#questionNr{
+    margin-left: 20px;
 }
 h1{
+    padding-top: 2%;
     text-align: center;
-    color: rgb(0, 132, 255);
+    color: rgb(250, 250, 250);
     font-size: 2rem;
 }
+h2{
+    margin-left: 20px;
+}
 
-
-
-
-.answerContainer{
-    background-color: rgb(17, 102, 212);
+#answerContainer{
+    padding-left: 10px;
+}
+#introContainer{
+    padding-top: 100px;
+    padding-bottom: 20px;
+    text-align: center;
 }
 #startBtn{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 40%;
-      
+        
+        margin-left: 45%;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: bold;
+        border: none;
+
 }
 
+#nextBtn{
+    margin-top: 20px;
+   margin-left: 40%;
+   width: 100px;
+   height: 30px;
+   text-align: center;
+   border-radius: 20px;
+   border: none;
+   font-weight: bold;
+
+
+}
+#replay{
+    margin-left:45%;
+    margin-top: 1%;
+    
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.hide{
+    display: none;
+}
+
+.divAnswers{
+    color: rgb(250, 250, 250);
+    background-color: rgb(0,0,0);
+    font-size: large;
+    font-weight: bold;
+    margin: 10px;
+    padding: 5px 30px;
+    padding-left: 20px;
+    display: flex;
+    border-radius: 20px;
+    width: 800px;
+    height: 30px;
+    
+
+}
+
+.clicked{
+  background-color: rgb(71, 71, 73)
+  
+    
+}
+.checkbox{
+    width: 30px;
+    height: 30px;
+    display: block; 
+}
