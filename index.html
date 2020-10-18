@@ -11,62 +11,31 @@
 <body>
 
     <h1>QUIZ APP</h1>
-<!-- 
-    <div class="container">
-        <div id="game" class="justify-center flex-column">
-          <h2 id="questionDisplay" ><span>Insructions:</span> 
-            <br>
-            question will appear and you choose one of the choice. ARE YOU REAY?
-          </h2>
-          <button id="startBtn">Start Game </button>
-          <div class="choice-container">
-            <p class="choice-prefix">A</p>
-            <p class="choice-text" data-number="1">Choice 1</p>
-          </div>
-          <div class="choice-container">
-            <p class="choice-prefix">B</p>
-            <p class="choice-text" data-number="2">Choice 2</p>
-          </div>
-          <div class="choice-container">
-            <p class="choice-prefix">C</p>
-            <p class="choice-text" data-number="3">Choice 3</p>
-          </div>
-          <div class="choice-container">
-            <p class="choice-prefix">D</p>
-            <p class="choice-text" data-number="4">Choice 4</p>
-          </div>
-        </div>
-      </div> -->
+<div class="container" >
+  <div id="introContainer">
+     <h3> Are you ready to start?</h3>
+    <!-- <label for="playerInput">Enter Your Name</label> -->
+    <!-- <input type="text" name="" id="playerInput"> -->
+     
+  </div>
+
+  <div class="hide" id="mainContainer" >
+     <div id="questionContainer">
+            <p><span id="questionNr">1</span>/10</p>
+            <h2 id="questionDisplay"></h2>
+    </div>
+    <div id="answerContainer" >
+     <!-- answers will be created here... -->
+    </div>
+    
+  </div>
+      <button id = "startBtn">START QUIZ</button>
+      <button id = "nextBtn"  class="hide">Next</button>
+      <button id = "replay"  class="hide">Play Again</button>
+</div>
 
     
-
-    <div class="container"> 
-
-      <div class="questionContainer">
-        <p><span id="questionCounter">0</span>/10</p>
-        <h2 id="questionDisplay">what is the answer</h2>
-        
-
-      </div>
-
-      <div class="answerContainer">
-
-        <p id="answer1">answer1</p>
-        <p id="answer2">answer2</p>
-        <p id="answer3">answer3</p>
-      </div>
-
-
-     
-       
-
-      <button id = "startBtn">START GAME</button>
-
-    </div>
-
-
-
-        <script src="app.js"></script>
+        <script src="quiz.js"></script>
 
 </body>
 </html>
