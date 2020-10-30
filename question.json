@@ -1,0 +1,123 @@
+[{
+        "id": 379,
+        "question": "What will be the output of the query SELECT * FROM `members` LIMIT 1, 2;",
+        "description": null,
+        "answers": {
+            "answer_a": "the query will generate an error",
+            "answer_b": "the query will return all records from the members table",
+            "answer_c": "the query will return the first 2 records",
+            "answer_d": "the query will return skip the first record then return the following 2 records only",
+            "answer_e":  "the query will return skip the first record then return the following 2 records only" ,
+            "answer_f":  "the query will return skip the first record then return the following 2 records only"
+        },
+        "multiple_correct_answers": "false",
+        "correct_answers": {
+            "answer_a_correct": "false",
+            "answer_b_correct": "true",
+            "answer_c_correct": "false",
+            "answer_d_correct": "true",
+            "answer_e_correct": "true",
+            "answer_f_correct": "true"
+        },
+        "correct_answer": "answer_a",
+        "explanation": null,
+        "tip": null,
+        "tags": [{
+            "name": "MySQL"
+        }],
+        "category": "SQL",
+        "difficulty": "Easy"
+    },
+    {
+        "id": 379,
+        "question": "What will be the output of the query SELECT * FROM `members` LIMIT 1, 2;",
+        "description": null,
+        "answers": {
+            "answer_a": "the query will generate an error",
+            "answer_b": "the query will return all records from the members table",
+            "answer_c": "the query will return the first 2 records",
+            "answer_d": "the query will return skip the first record then return the following 2 records only",
+            "answer_e": "the query will return skip the first record then return the following 2 records only",
+            "answer_f": null
+        },
+        "multiple_correct_answers": "true",
+        "correct_answers": {
+            "answer_a_correct": "true",
+            "answer_b_correct": "true",
+            "answer_c_correct": "false",
+            "answer_d_correct": "true",
+            "answer_e_correct": "true",
+            "answer_f_correct": "false"
+        },
+        "correct_answer": "answer_a",
+        "explanation": null,
+        "tip": null,
+        "tags": [{
+            "name": "MySQL"
+        }],
+        "category": "SQL",
+        "difficulty": "Easy"
+    },
+    {
+
+
+        "id": 34,
+        "question": "Which command is used to create file archives in Linux?",
+        "description": null,
+        "answers": {
+            "answer_a": "arc",
+            "answer_b": "zip",
+            "answer_c": "ps",
+            "answer_d": "tar",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "multiple_correct_answers": "false",
+        "correct_answers": {
+            "answer_a_correct": "false",
+            "answer_b_correct": "true",
+            "answer_c_correct": "false",
+            "answer_d_correct": "false",
+            "answer_e_correct": "false",
+            "answer_f_correct": "false"
+        },
+        "correct_answer": "answer_d",
+        "explanation": null,
+        "tip": null,
+        "tags": [{
+            "name": "Linux"
+        }],
+        "category": "Linux",
+        "difficulty": "Easy"
+    },
+    {
+        "id": 60,
+        "question": "How do you write \"Hello World\" in PHP",
+        "description": null,
+        "answers": {
+            "answer_a": "echo \"Hello World\";",
+            "answer_b": "Document.Write(\"Hello World\");",
+            "answer_c": "\"Hello World\";",
+            "answer_d": "display \"Hello World\";",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "multiple_correct_answers": "false",
+        "correct_answers": {
+            "answer_a_correct": "true",
+            "answer_b_correct": "false",
+            "answer_c_correct": "false",
+            "answer_d_correct": "false",
+            "answer_e_correct": "false",
+            "answer_f_correct": "false"
+        },
+        "correct_answer": "answer_a",
+        "explanation": null,
+        "tip": null,
+        "tags": [{
+            "name": "PHP"
+        }],
+        "category": "",
+        "difficulty": "Easy"
+    }
+]

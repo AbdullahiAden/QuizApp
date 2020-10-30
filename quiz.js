@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (e) {
-  //
+  // used for debugging 
   // question.json 
   fetch("https://quizapi.io/api/v1/questions?apiKey=mK0SPtcOzyhQODarlNLDzoZOUogQMh5IenMC945k&category=code&difficulty=Easy&limit=10")
     .then(response => response.json())
@@ -59,7 +59,7 @@ class Quiz {
     // answers with null
     // console.log(this.loadedQuestions[this.questionCounter].answers);
     let toBeFiltered = Object.values(this.loadedQuestions[this.questionCounter].answers)
-    
+
     // gives array without null
     let filteredAnswerChoices = toBeFiltered.filter(unfilteredAnswers => unfilteredAnswers !== null)
     // console.log(filteredAnswerChoices.length);
