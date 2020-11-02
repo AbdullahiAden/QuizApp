@@ -9,9 +9,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 })
 
-
 class Quiz {
   constructor(fetchedQuestions) {
+
+    this.playerName;
     this.loadedQuestions = []
     this.questionCounter = 0;
     this.maxQuestions = 10
@@ -26,11 +27,11 @@ class Quiz {
     }
     // contains an object created from the Question class which holds all the json objects from the api 
     console.log(this.loadedQuestions);
+
     this.startQuiz()
   }
 
   startQuiz() {
-    // this.questionCounter++
     let startBtn = document.getElementById('startBtn');
     startBtn.addEventListener("click", e => {
       startBtn.classList.add("hide")
@@ -89,9 +90,12 @@ class Quiz {
     let multiple_correct_answers = this.loadedQuestions[this.questionCounter].multiple_correct_answers
     let answerChoices = this.loadedQuestions[this.questionCounter].answers
 
+    this.playerName = document.getElementById('playerInput').value;
+    console.log(this.playerName);
+
     console.log(multiple_correct_answers);
-    console.log(correctAnswers);
-    console.log(answerChoices);
+    // console.log(correctAnswers);
+    // console.log(answerChoices);
     let userIndex = []
     let trueIndexes = []
 
@@ -111,45 +115,45 @@ class Quiz {
           console.log(userIndex);
 
         } else {
-// means is not clicked, unclicked
+          // means is not clicked, unclicked
           userIndex = []
-       
+
         }
- // check multiple answer
-            if (multiple_correct_answers === "true") {
-              console.log('multi true');
-                if (trueIndexes.every((val)=> userIndex.includes(val)) ){
-                this.score++;
-                console.log('multiple');
-                console.log("score is 1");
-                console.log(this.score);
+        // check multiple answer
+        if (multiple_correct_answers === "true") {
+          console.log('multi true');
+          if (trueIndexes.every((val) => userIndex.includes(val) && trueIndexes.length === userIndex.length)) {
+            this.score++;
+            console.log('multiple');
+            console.log("score is 1");
+            console.log(this.score);
 
-              }
-  // check multiple that is shown "false" in multiple_correct_answers in the API data
-            } else if (multiple_correct_answers === "false" && trueIndexes.length > 1) {
-                
-              if (trueIndexes.every((val)=> userIndex.includes(val)) ){
-                this.score++
-                console.log('multi false but scored 1' );
-                console.log(this.score);
+          }
+          // check multiple that is shown "false" in multiple_correct_answers in the API data
+        } else if (multiple_correct_answers === "false" && trueIndexes.length > 1) {
 
-              }
-            }
- // check for single answer
-            else if (multiple_correct_answers === "false" && trueIndexes.length <= 1) {
-                  if (trueIndexes.every((val)=> userIndex.includes(val)) ){
+          if (trueIndexes.every((val) => userIndex.includes(val)) && trueIndexes.length === userIndex.length) {
+            this.score++
+            console.log('multi false but scored 1');
+            console.log(this.score);
 
-                  this.score  ++;
-                  console.log("scored1");
-                  console.log(this.score);
-                } else {
-                  // ** when chosen correct ans, and clikc with wrong, it ++
-                  // this.score++
-                  console.log('scored 0');
-                  console.log(this.score);
-                }
+          }
+        }
+        // check for single answer
+        else if (multiple_correct_answers === "false" && trueIndexes.length <= 1) {
+          if (trueIndexes.every((val) => userIndex.includes(val)) && trueIndexes.length === userIndex.length) {
 
-            }
+            this.score++;
+            console.log("scored1");
+            console.log(this.score);
+          } else {
+            // ** when chosen correct ans, and clikc with wrong, it ++
+            // this.score++
+            console.log('scored 0');
+            console.log(this.score);
+          }
+
+        }
       });
 
     })
@@ -175,7 +179,17 @@ class Quiz {
         questionContainer.classList.add("hide")
 
         intro.classList.remove("hide")
-        intro.innerText = "GAME OVER! Your Score is " + this.score
+        let gameOver = document.createElement("h3")
+
+        if (this.playerName === " ") {
+          alert("name o")
+        }
+
+        gameOver.innerHTML = " GAME OVER! " + "-- " + this.playerName
+
+
+        intro.innerText = "Your Score is : " + this.score
+        intro.appendChild(gameOver)
 
         this.rePlay()
 
