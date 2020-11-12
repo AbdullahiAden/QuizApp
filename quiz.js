@@ -20,7 +20,7 @@ class Quiz {
     this.selectedAnswers = []
     this.correctAnswerChoices = []
     this.score = 0
-    console.log(fetchedQuestions);
+    // console.log(fetchedQuestions);
 
     for (let fetchedQuestion of fetchedQuestions) {
       this.loadedQuestions.push(new Question(fetchedQuestion))
@@ -91,9 +91,9 @@ class Quiz {
     let answerChoices = this.loadedQuestions[this.questionCounter].answers
 
     this.playerName = document.getElementById('playerInput').value;
-    console.log(this.playerName);
+    // console.log(this.playerName);
 
-    console.log(multiple_correct_answers);
+    // console.log(multiple_correct_answers);
     // console.log(correctAnswers);
     // console.log(answerChoices);
     let userIndex = []
@@ -121,11 +121,10 @@ class Quiz {
         }
         // check multiple answer
         if (multiple_correct_answers === "true") {
-          console.log('multi true');
+          // console.log('multi true');
           if (trueIndexes.every((val) => userIndex.includes(val) && trueIndexes.length === userIndex.length)) {
             this.score++;
-            console.log('multiple');
-            console.log("score is 1");
+            // console.log("score is 1");
             console.log(this.score);
 
           }
@@ -134,7 +133,7 @@ class Quiz {
 
           if (trueIndexes.every((val) => userIndex.includes(val)) && trueIndexes.length === userIndex.length) {
             this.score++
-            console.log('multi false but scored 1');
+            // console.log('multi false but scored 1');
             console.log(this.score);
 
           }
@@ -144,12 +143,11 @@ class Quiz {
           if (trueIndexes.every((val) => userIndex.includes(val)) && trueIndexes.length === userIndex.length) {
 
             this.score++;
-            console.log("scored1");
+            // console.log("scored1");
             console.log(this.score);
           } else {
             // ** when chosen correct ans, and clikc with wrong, it ++
-            // this.score++
-            console.log('scored 0');
+            // console.log('scored 0');
             console.log(this.score);
           }
 
@@ -180,10 +178,6 @@ class Quiz {
 
         intro.classList.remove("hide")
         let gameOver = document.createElement("h3")
-
-        if (this.playerName === " ") {
-          alert("name o")
-        }
 
         gameOver.innerHTML = " GAME OVER! " + "-- " + this.playerName
 
