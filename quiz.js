@@ -17,10 +17,8 @@ class Quiz {
     this.questionCounter = 0;
     this.maxQuestions = 10
 
-    this.selectedAnswers = []
-    this.correctAnswerChoices = []
+    
     this.score = 0
-    // console.log(fetchedQuestions);
 
     for (let fetchedQuestion of fetchedQuestions) {
       this.loadedQuestions.push(new Question(fetchedQuestion))
@@ -43,16 +41,23 @@ class Quiz {
       let intro = document.getElementById('introContainer');
       intro.classList.add("hide")
 
-
+      this.playerName = document.getElementById('playerInput').value;
+      console.log(this.playerName);
       this.displayCurrentQuestion()
+      // increment counter 
       this.questionCounter++
     })
+
+    // method call 
     this.nextButton()
 
   }
   displayCurrentQuestion() {
     let questionDisplay = document.getElementById('questionDisplay');
+    // displays question 1, counter starts 1 here
     questionDisplay.innerText = this.loadedQuestions[this.questionCounter].question
+
+    // method call 
     this.displayCurrentAnswers()
   }
 
@@ -61,17 +66,21 @@ class Quiz {
     // console.log(this.loadedQuestions[this.questionCounter].answers);
     let toBeFiltered = Object.values(this.loadedQuestions[this.questionCounter].answers)
 
-    // gives array without null
+    // gives array without null, cause null has been filtered out
     let filteredAnswerChoices = toBeFiltered.filter(unfilteredAnswers => unfilteredAnswers !== null)
     // console.log(filteredAnswerChoices.length);
+
+    // loop through answers and create p tag for each answer and append to the answerContainer
     for (let i = 0; i < filteredAnswerChoices.length; i++) {
       let answerContainer = document.getElementById('answerContainer');
       let answerDiv = document.createElement("p")
 
       answerDiv.classList.add("divAnswers")
+      // displays each answer in its own p tag
       answerDiv.innerText = filteredAnswerChoices[i]
       answerContainer.appendChild(answerDiv)
 
+      // giving style for the clicked answer
       answerDiv.addEventListener("click", e => {
         if (answerDiv.classList.contains("clicked")) {
           answerDiv.classList.remove("clicked")
@@ -82,16 +91,16 @@ class Quiz {
       })
 
     }
+    // method call 
     this.correctTheQuestion()
   }
 
   correctTheQuestion() {
     let correctAnswers = Object.values(this.loadedQuestions[this.questionCounter].correct_answers)
     let multiple_correct_answers = this.loadedQuestions[this.questionCounter].multiple_correct_answers
-    let answerChoices = this.loadedQuestions[this.questionCounter].answers
+    // let answerChoices = this.loadedQuestions[this.questionCounter].answers
 
-    this.playerName = document.getElementById('playerInput').value;
-    // console.log(this.playerName);
+    
 
     // console.log(multiple_correct_answers);
     // console.log(correctAnswers);
@@ -99,15 +108,20 @@ class Quiz {
     let userIndex = []
     let trueIndexes = []
 
-    // loop through the correct answers array and push the indexes that hold the keyword "true" into trueIndexes array, to be later compared with users answers
+    // loop through the correct answers array and push the indexes that hold 
+      // the keyword "true" into trueIndexes array, to be later compared with users answers
+
     let i = -1;
     while ((i = correctAnswers.indexOf("true", i + 1)) != -1) {
       trueIndexes.push(i)
     }
     console.log(trueIndexes);
+
+    // make array from the divanswers that were created 
     let userAnswers = Array.from(document.querySelectorAll('.divAnswers'))
 
-    // push the clicked div in userIndex, then compare with trueIndexes which holds the correct answer indexes, then match them
+    // loop through the answers, push the clicked div in userIndex array , 
+      // then compare that with trueIndexes which holds the correct answer indexes, then match them
     userAnswers.forEach(check => {
       check.addEventListener('click', e => {
         if (check.classList.contains("clicked")) {
@@ -115,38 +129,41 @@ class Quiz {
           console.log(userIndex);
 
         } else {
-          // means is not clicked, unclicked
+          // means is not clicked, so empty
           userIndex = []
 
         }
+
         // check multiple answer
         if (multiple_correct_answers === "true") {
-          // console.log('multi true');
+          console.log('multi true');
+          // if each value in trueIndexes is found in userIndex and the length is same. increment score. order don't matter
           if (trueIndexes.every((val) => userIndex.includes(val) && trueIndexes.length === userIndex.length)) {
             this.score++;
             // console.log("score is 1");
             console.log(this.score);
 
           }
-          // check multiple that is shown "false" in multiple_correct_answers in the API data
+          // check multiple that is shown "false" in multiple_correct_answers in the API data. 
         } else if (multiple_correct_answers === "false" && trueIndexes.length > 1) {
 
           if (trueIndexes.every((val) => userIndex.includes(val)) && trueIndexes.length === userIndex.length) {
             this.score++
-            // console.log('multi false but scored 1');
+            console.log('multi false');
             console.log(this.score);
 
           }
         }
         // check for single answer
         else if (multiple_correct_answers === "false" && trueIndexes.length <= 1) {
+          // if each value in trueIndexes is found in userIndex and the length is same. increment score.
           if (trueIndexes.every((val) => userIndex.includes(val)) && trueIndexes.length === userIndex.length) {
 
             this.score++;
             // console.log("scored1");
             console.log(this.score);
           } else {
-            // ** when chosen correct ans, and clikc with wrong, it ++
+            // ** when chosen correct ans, and click with wrong, it give point
             // console.log('scored 0');
             console.log(this.score);
           }
