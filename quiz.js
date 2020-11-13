@@ -174,6 +174,7 @@ class Quiz {
     })
   }
 
+
   nextButton() {
 
     let nextBtn = document.getElementById('nextBtn');
@@ -182,6 +183,7 @@ class Quiz {
 
     nextBtn.addEventListener("click", e => {
 
+      // displays end game screen, and reveal replay btn
       if (this.questionCounter >= this.maxQuestions) {
 
         let replay = document.getElementById('replay');
@@ -205,7 +207,7 @@ class Quiz {
         this.rePlay()
 
       }
-      // empty the question and answers
+      // empty the question and answers divs
       let questionDisplay = document.getElementById('questionDisplay');
       questionDisplay.innerText = ""
 
@@ -221,6 +223,7 @@ class Quiz {
 
   }
 
+  // to replay the game
   rePlay() {
     let replay = document.getElementById('replay');
     replay.addEventListener("click", e => {
@@ -231,6 +234,8 @@ class Quiz {
   }
 
 }
+
+// question class
 class Question {
   constructor(question) {
     this.question = question.question
